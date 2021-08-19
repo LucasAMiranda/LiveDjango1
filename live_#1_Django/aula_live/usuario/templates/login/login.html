@@ -8,9 +8,31 @@
 </head>
 <body>
 
+    <style>
+        body{
+            background-color: gray;
+        }
+    </style>
+    <!-- 
     {% if nome_usuario != None%}
         <h2>Seja bem vindo {{nome_usuario}}</h2>
     {%endif%}
     <h1>Visualização da Página de login</h1>
+    -->
+
+    {% if status == '1'%}
+        <h1>Usuário cadastrado com sucesso.</h1>
+    {%endif%}
+
+    {% if status == '2'%}
+        <h1>Houve um erro no cadastro. Tente Novamente!</h1>
+    {%endif%}
+
+    <form method="POST" action="{% url 'salvar' %}">{%csrf_token%}
+        <input type="text" placeholder="nome" name="nome">
+        <input type="text" placeholder="sobrenome" name="sobrenome">
+        <input type="number" placeholder="idade" name="idade">
+        <input type="submit">
+    </form>
 </body>
 </html>
