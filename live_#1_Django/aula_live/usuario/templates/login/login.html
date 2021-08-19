@@ -10,7 +10,35 @@
 
     <style>
         body{
+            margin: 0;
             background-color: gray;
+        }
+
+        h2{
+            margin: auto;
+            text-align: center;
+            font-size: 60px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #00ff00;
+        }
+
+        form{
+            width: 160px;
+            height: 150px;
+            background-color: #DDD;
+            margin: 0 auto;
+            padding: 100px;
+            margin-top: 100px;
+        }
+
+        input{
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        .btnClick{
+            border-radius: 5px;
+            padding: 10px;
         }
     </style>
     <!-- 
@@ -28,11 +56,16 @@
         <h1>Houve um erro no cadastro. Tente Novamente!</h1>
     {%endif%}
 
+    
+    <h2>Cadastro De Usuários</h2>
     <form method="POST" action="{% url 'salvar' %}">{%csrf_token%}
-        <input type="text" placeholder="nome" name="nome">
-        <input type="text" placeholder="sobrenome" name="sobrenome">
-        <input type="number" placeholder="idade" name="idade">
-        <input type="submit">
+        <label for="nome">Nome: </label>
+        <input type="text" placeholder="nome" name="nome"><br/><br/>
+        <label for="sobrenome">Sobrenome: </label>
+        <input type="text" placeholder="sobrenome" name="sobrenome"><br/><br/>
+        <label for="idade">Idade: </label>
+        <input type="number" placeholder="idade" name="idade"><br/><br/>
+        <input type="submit" class="btnClick">
     </form>
 </body>
 </html>
